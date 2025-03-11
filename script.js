@@ -15,6 +15,21 @@ function returnMovies(url){
   data.results.forEach(element => {
       const div_card = document.createElement('div');
       div_card.setAttribute('class', 'card');
+      div_card.addEventListener('mouseover', e => {
+        let card = e.target.closest('.card');
+        if(!card) return;
+        card.style.boxShadow = '10px 5px 10px 10px white';
+        description.style.display = 'block';
+        card.style.height = '650px';
+      })
+      div_card.addEventListener('mouseout', e => {
+        let card = e.target.closest('.card');
+        if(!card) return;
+        card.style.boxShadow = 'none';
+        description.style.display = 'none';
+        card.style.height = '450px';
+
+      })
       
       const div_row = document.createElement('div');
       div_row.setAttribute('class', 'row');
@@ -31,12 +46,18 @@ function returnMovies(url){
       
       const center = document.createElement('center');
 
+      const description = document.createElement('p');
+      description.setAttribute('class', 'description');
+      description.innerHTML = `${element.overview}`;
+
       title.innerHTML = `${element.title}`;
       image.src = IMG_PATH + element.poster_path;
 
       center.appendChild(image);
+    
       div_card.appendChild(center);
       div_card.appendChild(title);
+      div_card.appendChild(description);
       div_column.appendChild(div_card);
       div_row.appendChild(div_column);
 
