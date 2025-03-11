@@ -28,7 +28,10 @@ function returnMovies(url){
         card.style.boxShadow = 'none';
         description.style.display = 'none';
         card.style.height = '450px';
-
+      })
+      div_card.addEventListener('click', e => {
+        let card = e.target.closest('.card');
+        if(!card) return;
       })
       
       const div_row = document.createElement('div');
