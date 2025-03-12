@@ -20,14 +20,14 @@ function returnMovies(url){
         if(!card) return;
         card.style.boxShadow = '10px 5px 10px 10px white';
         description.style.display = 'block';
-        card.style.height = '650px';
+        // card.style.height = '650px';
       })
       div_card.addEventListener('mouseout', e => {
         let card = e.target.closest('.card');
         if(!card) return;
         card.style.boxShadow = 'none';
         description.style.display = 'none';
-        card.style.height = '450px';
+        // card.style.height = '450px';
       })
       div_card.addEventListener('click', e => {
         let card = e.target.closest('.card');
